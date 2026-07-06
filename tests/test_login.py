@@ -56,5 +56,5 @@ class TestLogin(MyTestBase):
         login_page.navigate()
         login_page.login("standard_user", "")
         login_page.assert_error_contains(
-            "Epic sadface: password is required"
+            "Epic sadface: Password is required"
         )

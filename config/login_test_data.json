@@ -32,6 +32,6 @@
         "username": "standard_user",
         "password": "",
         "expected_success": false,
-        "expected_error": "Epic sadface: password is required"
+        "expected_error": "Epic sadface: Password is required"
     }
 ]
