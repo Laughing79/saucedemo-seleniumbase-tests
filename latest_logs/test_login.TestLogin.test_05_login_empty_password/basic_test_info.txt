@@ -1,0 +1,22 @@
+tests/test_login.py::TestLogin::test_05_login_empty_password
+--------------------------------------------------------------------
+Last Page: https://www.saucedemo.com/
+ Duration: 2.63s
+  Browser: Edge 150.0.4078.48
+   Driver: msedgedriver 150.0.4078.48
+Timestamp: 1783327620  (Unix Timestamp)
+     Date: Monday, 6 July 2026
+     Time: 4:47:00 PM  (中国标准时间, UTC+08:00)
+--------------------------------------------------------------------
+Traceback:
+  File "E:\demo\项目二\tests\test_login.py", line 58, in test_05_login_empty_password
+    login_page.assert_error_contains(
+  File "E:\demo\项目二\pages\login_page.py", line 84, in assert_error_contains
+    self.assert_text_equal(
+  File "E:\demo\项目二\pages\base_page.py", line 100, in assert_text_equal
+    self._do_assert(_check)
+  File "E:\demo\项目二\pages\base_page.py", line 58, in _do_assert
+    assert_fn()
+  File "E:\demo\项目二\pages\base_page.py", line 99, in _check
+    raise AssertionError(message or f"Expected '{expected}', got '{actual}'")
+Exception: Error message should be 'Epic sadface: password is required', but got 'Epic sadface: Password is required'

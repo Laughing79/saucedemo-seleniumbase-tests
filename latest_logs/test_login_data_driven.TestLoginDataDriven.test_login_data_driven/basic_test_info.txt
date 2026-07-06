@@ -1,0 +1,15 @@
+tests/test_login_data_driven.py::TestLoginDataDriven::test_login_data_driven
+--------------------------------------------------------------------
+Last Page: https://www.saucedemo.com/
+ Duration: 3.15s
+  Browser: Edge 150.0.4078.48
+   Driver: msedgedriver 150.0.4078.48
+Timestamp: 1783327627  (Unix Timestamp)
+     Date: Monday, 6 July 2026
+     Time: 4:47:07 PM  (中国标准时间, UTC+08:00)
+--------------------------------------------------------------------
+Traceback:
+  File "E:\demo\项目二\tests\test_login_data_driven.py", line 49, in test_login_data_driven
+    self.sb.assert_true(False, f"\n{len(failed)} group(s) failed:\n" + "\n".join(failed))
+    ^^^^^^^
+Exception: 'TestLoginDataDriven' object has no attribute 'sb'
