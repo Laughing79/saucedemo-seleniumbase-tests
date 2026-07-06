@@ -1,0 +1,61 @@
+name: UI 自动化回归测试
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  # 允许手动触发
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 拉代码
+      - name: Checkout 代码
+        uses: actions/checkout@v4
+
+      # 2. 装 Python
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 3. 装浏览器（SeleniumBase CI 需要 Chrome）
+      - name: 安装 Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      # 4. 装 Python 依赖
+      - name: 安装依赖
+        run: |
+          pip install seleniumbase allure-pytest
+
+      # 5. 跑全量测试（无头模式）
+      - name: 运行测试
+        run: |
+          pytest tests/ \
+            --headless \
+            --browser=chrome \
+            --alluredir=reports/allure-results \
+            -v \
+            --tb=short
+
+      # 6. 上传 Allure 报告
+      - name: 存档 Allure 报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: reports/allure-results
+
+      # 7. 上传失败截图
+      - name: 存档失败截图
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-screenshots
+          path: screenshots/

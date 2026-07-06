@@ -1,0 +1,37 @@
+[
+    {
+        "scenario": "正常登录",
+        "username": "standard_user",
+        "password": "secret_sauce",
+        "expected_success": true,
+        "expected_error": ""
+    },
+    {
+        "scenario": "锁定用户",
+        "username": "locked_out_user",
+        "password": "secret_sauce",
+        "expected_success": false,
+        "expected_error": "Epic sadface: Sorry, this user has been locked out."
+    },
+    {
+        "scenario": "密码错误",
+        "username": "standard_user",
+        "password": "wrong_password",
+        "expected_success": false,
+        "expected_error": "Epic sadface: Username and password do not match any user in this service"
+    },
+    {
+        "scenario": "用户名为空",
+        "username": "",
+        "password": "secret_sauce",
+        "expected_success": false,
+        "expected_error": "Epic sadface: Username is required"
+    },
+    {
+        "scenario": "密码为空",
+        "username": "standard_user",
+        "password": "",
+        "expected_success": false,
+        "expected_error": "Epic sadface: password is required"
+    }
+]
